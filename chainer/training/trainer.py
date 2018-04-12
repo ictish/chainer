@@ -296,8 +296,8 @@ class Trainer(object):
                     update()
                     #import pdb
                     #pdb.set_trace()
-                    if self.updater._iterators['main'].is_new_epoch and self.updater.epoch % 2 == 0:
-                        self.updater._optimizers['main'].lr *= 0.05
+                    if self.updater._iterators['main'].is_new_epoch and self.updater.epoch % 30 == 0:
+                        self.updater._optimizers['main'].lr *= 0.9
                     for name, entry in extensions:
                         if entry.trigger(self):
                             entry.extension(self)
