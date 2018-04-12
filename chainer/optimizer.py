@@ -525,7 +525,7 @@ class GradientMethod(Optimizer):
         """
         if lossfun is not None:
             use_cleargrads = getattr(self, '_use_cleargrads', True)
-            loss = lossfun(*args, **kwds)
+            loss, accuracy = lossfun(*args, **kwds)
             if use_cleargrads:
                 self.target.cleargrads()
             else:

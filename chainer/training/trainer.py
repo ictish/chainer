@@ -294,6 +294,10 @@ class Trainer(object):
                 self.observation = {}
                 with reporter.scope(self.observation):
                     update()
+                    #import pdb
+                    #pdb.set_trace()
+                    if self.updater._iterators['main'].is_new_epoch and self.updater.epoch % 2 == 0:
+                        self.updater._optimizers['main'].lr *= 0.05
                     for name, entry in extensions:
                         if entry.trigger(self):
                             entry.extension(self)

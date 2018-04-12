@@ -1,4 +1,5 @@
 *~
+*.swp
 *.egg/
 *.pyc
 *.pyo
